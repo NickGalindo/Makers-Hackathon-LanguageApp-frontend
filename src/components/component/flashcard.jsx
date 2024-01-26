@@ -3,7 +3,6 @@ import { decks } from "@/lib/decks";
 
 export function Flashcard({ language }) {
 
-  const MAX_CARD = 4 // 57
   const [data, setData] = useState(decks[language]);
   const [card, setCard] = useState(data[0]);
   const [isCorrect, setIsCorrect] = useState(null)
@@ -44,7 +43,7 @@ export function Flashcard({ language }) {
 
 
   return (
-    <div class="max-w-xl p-6 flex h-screen items-center rounded-lg shadow ">
+    <div class="max-w-xl p-6 flex h-screen items-center">
       <div>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{language === "English" ? "Select the correct translation" : "Sélectionnez la bonne traduction"}</h5>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{card.title}</p>
@@ -57,12 +56,14 @@ export function Flashcard({ language }) {
           </button>
         </div>
         <p class="mt-3 text-sm text-center text-gray-700 dark:text-gray-400">{`${language === "English" ? "Difficulty: " : "Difficulté: "} ${card.difficulty}`}</p>
-        {isCorrect === false ? <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-          <span class="font-medium">{language === "English" ? "Wrong!" : "Faux"}</span>
-        </div> :
-          <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-            <span class="font-medium">{language === "English" ? "Right!" : "Droite"}</span>
-          </div>}
+        <div className="mt-16">
+          {isCorrect === false ? <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">{language === "English" ? "Wrong!" : "Faux"}</span>
+          </div> :
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+              <span class="font-medium">{language === "English" ? "Right!" : "Droite"}</span>
+            </div>}
+        </div>
       </div>
     </div>
   )

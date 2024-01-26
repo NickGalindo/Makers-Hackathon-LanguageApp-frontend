@@ -11,10 +11,10 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between w-full max-w-3xl mx-auto ">
-      {!isPlaying ? <ChooseLang setLang={setLang} setIsPlaying={setIsPlaying}></ChooseLang> : <Flashcard language={lang}>
-      </Flashcard>}
-
-      <Sidebar setIsPlaying={setIsPlaying} language={lang}></Sidebar>
+      <Sidebar setIsPlaying={setIsPlaying} language={lang}>
+        {!isPlaying ? <ChooseLang setLang={setLang} setIsPlaying={setIsPlaying}></ChooseLang> : <Flashcard language={lang}>
+        </Flashcard>}
+      </Sidebar>
     </main>
   );
 }
