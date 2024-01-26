@@ -1,7 +1,7 @@
 'use client';
 export function ChooseLang({ setLang, setIsPlaying }) {
     return (
-        <div class="w-full h-screen max-w-sm p-4 flex items-center  rounded-lg shadow sm:p-6 ">
+        <div class="w-full h-screen max-w-xl p-4 flex items-center  rounded-lg shadow sm:p-6 ">
             <div>
                 <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
                     Hi!, what do you want to learn today?
