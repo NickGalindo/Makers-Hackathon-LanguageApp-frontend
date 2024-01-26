@@ -7,7 +7,7 @@ export function Flashcard({ language }) {
   const [card, setCard] = useState(data[0]);
   const [isCorrect, setIsCorrect] = useState(null)
   console.log(isCorrect)
-
+  console.log(isCorrect === false)
 
   const handleClick = () => {
 
@@ -57,9 +57,10 @@ export function Flashcard({ language }) {
         </div>
         <p class="mt-3 text-sm text-center text-gray-700 dark:text-gray-400">{`${language === "English" ? "Difficulty: " : "Difficulté: "} ${card.difficulty}`}</p>
         <div className="mt-16">
-          {isCorrect === false ? <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+          {isCorrect === false && <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
             <span class="font-medium">{language === "English" ? "Wrong!" : "Faux"}</span>
-          </div> :
+          </div>}
+          {isCorrect === true &&
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
               <span class="font-medium">{language === "English" ? "Right!" : "Droite"}</span>
             </div>}
