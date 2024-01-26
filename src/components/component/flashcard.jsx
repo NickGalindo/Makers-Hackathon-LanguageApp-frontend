@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
+import { decks } from "@/lib/decks";
 
 export function Flashcard({ language }) {
 
   const MAX_CARD = 4 // 57
-  const [card, setCard] = useState({
-    "id": 1,
-    "title": "Bonjour",
-    "opt_correct": "Como estas?",
-    "opt_incorrect": "Esta muy feo",
-    "difficulty": 1
-  });
-  const [data, setData] = useState();
+  const [data, setData] = useState(decks[language]);
+  const [card, setCard] = useState(data[0]);
 
   const handleClick = () => {
-    setCard(data[0])
-    if (card === data[0].length) {
+
+    if (card.id === data.length) {
+      console.log(true)
       setCard(data[0])
+      return
     }
-    setCard(data[0].cards[card.id + 1])
+    setCard(data[card.id])
   }
 
   // useEffect(() => {
@@ -56,7 +53,7 @@ export function Flashcard({ language }) {
             {card.opt_incorrect}
           </button>
         </div>
-
+        <p class="mt-3 text-sm text-center text-gray-700 dark:text-gray-400">{`Difficulty: ${card.difficulty}`}</p>
       </div>
     </div>
   )
