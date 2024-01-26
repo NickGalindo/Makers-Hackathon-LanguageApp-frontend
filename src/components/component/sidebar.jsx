@@ -1,6 +1,6 @@
 'use client';
 
-export function Sidebar({setIsPlaying}) {
+export function Sidebar({setIsPlaying, language}) {
     return (
         <>
             <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -32,6 +32,7 @@ export function Sidebar({setIsPlaying}) {
                             </button>
                         </li>
                     </ul>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{language}</p>
                 </div>
             </aside>
 

@@ -14,7 +14,7 @@ export default function Home() {
       {!isPlaying ? <ChooseLang setLang={setLang} setIsPlaying={setIsPlaying}></ChooseLang> : <Flashcard language={lang}>
       </Flashcard>}
 
-      <Sidebar setIsPlaying={setIsPlaying}></Sidebar>
+      <Sidebar setIsPlaying={setIsPlaying} language={lang}></Sidebar>
     </main>
   );
 }
